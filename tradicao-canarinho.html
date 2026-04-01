@@ -8,7 +8,7 @@
   <title>NOSSO HEXA - Tradição Canarinho 2026</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
-    href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700;900&amp;family=Manrope:wght@400;500;700&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
     rel="stylesheet" />
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -29,8 +29,8 @@
           },
           fontFamily: {
             "headline": ["Lexend"],
-            "body": ["Manrope"],
-            "label": ["Manrope"]
+            "body": ["Lexend"],
+            "label": ["Lexend"]
           },
           borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
         },
@@ -78,7 +78,7 @@
   <nav class="fixed top-0 left-0 w-full bg-white z-50 border-b border-gray-100 px-6 py-4">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="flex items-center gap-12">
-        <div class="text-2xl font-black italic tracking-tighter text-black uppercase">NOSSO HEXA</div>
+        <div class="text-2xl font-black italic tracking-tighter font-headline text-black uppercase">NOSSO HEXA</div>
         <div class="hidden md:flex gap-8 items-center">
           <a class="font-bold text-xs uppercase tracking-wider text-gray-400 hover:text-black transition-colors"
             href="/">HOME</a>
@@ -111,7 +111,7 @@
     <div id="mobile-menu"
       class="absolute top-0 right-0 w-64 h-full bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
       <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-white">
-        <span class="text-xl font-black italic tracking-tighter text-black uppercase">MENU</span>
+        <span class="text-xl font-black italic tracking-tighter font-headline text-black uppercase">MENU</span>
         <button id="close-menu-btn" class="outline-none text-gray-500 hover:text-red-500 transition-colors">
           <span class="material-symbols-outlined text-2xl">close</span>
         </button>
@@ -220,20 +220,20 @@
               </div>
               <div class="text-right">
                 <span class="text-gray-400 text-xs block font-bold mb-1">PREÇO ELITE</span>
-                <span class="text-4xl font-black text-primary">R$ 190</span>
+                <span class="text-4xl font-black text-secondary">R$ 190</span>
               </div>
             </div>
             <ul class="space-y-4 mb-12 border-t border-gray-200 pt-8">
               <li class="flex items-center gap-3 text-sm font-bold text-gray-700">
-                <span class="material-symbols-outlined text-primary" data-icon="check">check</span>
+                <span class="material-symbols-outlined text-secondary" data-icon="check">check</span>
                 Tecnologia Aero-Fit (Ventilação Mapeada)
               </li>
               <li class="flex items-center gap-3 text-sm font-bold text-gray-700">
-                <span class="material-symbols-outlined text-primary" data-icon="check">check</span>
+                <span class="material-symbols-outlined text-secondary" data-icon="check">check</span>
                 Escudo em Relevo Termotransferido
               </li>
               <li class="flex items-center gap-3 text-sm font-bold text-gray-700">
-                <span class="material-symbols-outlined text-primary" data-icon="check">check</span>
+                <span class="material-symbols-outlined text-secondary" data-icon="check">check</span>
                 Corte Atlético Slim Performance
               </li>
             </ul>
@@ -254,20 +254,20 @@
               </div>
               <div class="text-right">
                 <span class="text-gray-400 text-xs block font-bold mb-1">VALOR STADIUM</span>
-                <span class="text-4xl font-black text-secondary">R$ 160</span>
+                <span class="text-4xl font-black text-primary">R$ 160</span>
               </div>
             </div>
             <ul class="space-y-4 mb-12 border-t border-gray-200 pt-8">
               <li class="flex items-center gap-3 text-sm font-bold text-gray-700">
-                <span class="material-symbols-outlined text-secondary" data-icon="check">check</span>
+                <span class="material-symbols-outlined text-primary" data-icon="check">check</span>
                 Tecunologia Dri-FIT Clássica
               </li>
               <li class="flex items-center gap-3 text-sm font-bold text-gray-700">
-                <span class="material-symbols-outlined text-secondary" data-icon="check">check</span>
+                <span class="material-symbols-outlined text-primary" data-icon="check">check</span>
                 Escudo Bordado Premium
               </li>
               <li class="flex items-center gap-3 text-sm font-bold text-gray-700">
-                <span class="material-symbols-outlined text-secondary" data-icon="check">check</span>
+                <span class="material-symbols-outlined text-primary" data-icon="check">check</span>
                 Modelagem Regular Comfort
               </li>
             </ul>
@@ -280,17 +280,11 @@
     </section>
     <!-- Video Showcase Section -->
     <section class="py-0">
-      <div class="relative w-full aspect-video md:h-[600px] overflow-hidden group">
-        <div class="absolute inset-0 video-placeholder"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-          <div
-            class="w-24 h-24 rounded-full border-2 border-white flex items-center justify-center mb-8 cursor-pointer hover:scale-110 hover:bg-white hover:text-black transition-all">
-            <span class="material-symbols-outlined text-4xl" data-icon="play_arrow">play_arrow</span>
-          </div>
-          <h3 class="font-headline text-4xl md:text-6xl font-black italic mb-4 uppercase">Feel the Game</h3>
-          <p class="text-secondary font-bold tracking-[0.3em] text-sm">ASSISTA O MANTO EM MOVIMENTO</p>
-        </div>
+      <div class="relative w-full aspect-video md:h-[600px] overflow-hidden bg-black">
+        <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/tGyRgoBv2vI?rel=0&showinfo=0"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
     </section>
     <!-- Elite Details Section -->
@@ -339,7 +333,7 @@
   <footer class="bg-black py-16 px-8 border-t border-white/10">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-16">
-        <div class="text-3xl font-black italic tracking-tighter text-white">NOSSO HEXA</div>
+        <div class="text-3xl font-black italic tracking-tighter font-headline text-white">NOSSO HEXA</div>
         <div
           class="flex flex-wrap justify-center gap-12 text-[10px] font-black tracking-[0.2em] uppercase text-gray-500">
           <a class="hover:text-primary transition-colors" href="#">PRODUTOS</a>
@@ -362,7 +356,7 @@
         <div class="flex items-center gap-8 bg-white/5 px-6 py-3 rounded-lg">
           <div class="text-center">
             <p class="text-[8px] text-gray-500 uppercase font-black mb-1">VERSÃO JOGADOR</p>
-            <p class="text-xl font-black text-white">R$ 190</p>
+            <p class="text-xl font-black text-secondary">R$ 190</p>
           </div>
           <div class="w-px h-8 bg-white/10"></div>
           <div class="text-center">

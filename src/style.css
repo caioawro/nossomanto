@@ -1,0 +1,100 @@
+:root {
+    --primary-color: #FFDF00;
+    --on-primary-color: #000000;
+    --secondary-color: #006733;
+    --accent-color: #FFDF00;
+    --hero-bg: #fdfbf7;
+    --accent-glow: rgba(255, 223, 0, 0.25);
+}
+
+.theme-blue {
+    --primary-color: #1e3a8a;
+    --on-primary-color: #ffffff;
+    --secondary-color: #FFDF00;
+    --accent-color: #FFDF00;
+    --hero-bg: #0b1120;
+    --accent-glow: rgba(30, 58, 138, 0.4);
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.canarinho-gradient {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #d4af37 100%);
+}
+.nike-card-shadow {
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08);
+}
+.hero-transition {
+    background-color: var(--hero-bg);
+    transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accent-transition {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.vertical-text {
+    writing-mode: vertical-rl;
+}
+
+/* Image Comparison Slider Styles */
+.comparison-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: ew-resize;
+    user-select: none;
+}
+.comparison-slider img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+.comparison-slider .overlay-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+    border-right: 2px solid white;
+}
+.comparison-slider .overlay-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: none;
+}
+.comparison-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: white;
+    z-index: 3;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.comparison-handle::after {
+    content: "↔";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: white;
+    color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 2px solid #000;
+}

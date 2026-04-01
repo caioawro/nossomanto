@@ -55,6 +55,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     // E-commerce & Cart Logic
     // ----------------------------------------------------------------------
+    // Centralized Product Map for Search and Checkout Redirects
+    const productMap = {
+        'tradic-jogador': {
+            name: 'Uniforme I - Aero Fit (Jogador)',
+            price: 190.00,
+            theme: 'Tradição Canarinho',
+            image: 'https://lh3.googleusercontent.com/aida/ADBb0ujb4279ZdQAcuuv1DZXOu3lXJPZCh3U3IQ4_CIo2VVJKFbS8HodGiMBonrNl-zs0NULpXQcOrU6_mTXaqfAIO6s231vprP8NUhXld2qbJO_EJnBuSSlMI1CHcwwtz5n1XnZrR7N2NHx9xx8nD9n7T92YinPsm_l_BhzCNT55bYCHBhUBLjtPGtRmPJM8AIer1jEfUH7s_TytmkPyaCoQtq3at1OlWqzEV3U3zA5LgROdo8oWLX-HNPbJNMTezG2EFVHbMzQ4dXFmgk',
+            url: '/tradicao-canarinho'
+        },
+        'tradic-torcedor': {
+            name: 'Uniforme I - Aero Fit (Torcedor)',
+            price: 160.00,
+            theme: 'Tradição Canarinho',
+            image: 'https://lh3.googleusercontent.com/aida/ADBb0ujfFWtNXpvbEZAwGlLJSxvSWbudJHMxjObXFaGdxPlqp2VhOBYgyNqkthuAdVKpT5QtkBZUKPmb-zsSRSJbqgVYhpea5NANAL4gIAebhusUvDUj444TgvOC3VqzP-rf95NeuesHiMx_KT-M4ZteydLNj7zz-pdrTnzSBFcGUn_Bq6xdq2QKh_jD3l27-2n8KhDePfscwBoSLY5jIkKiNE0ORRpQnsjM-XZUe9Di20TEb7XDjTACMSsPfoR_FfQG0pmtf3E7ga6FKw',
+            url: '/tradicao-canarinho'
+        },
+        'azul-jogador': {
+            name: 'Uniforme II - Aero Fit (Jogador)',
+            price: 210.00,
+            theme: 'Azul Sinistro',
+            image: 'https://lh3.googleusercontent.com/aida/ADBb0uh0Bg1Dwg47MLuKSqTYmsy2Gmciwp51UfvvakJ4DZ4lPZ2gtKYpumR0QCAGvpJPpJe2CM4PhCaK9DZAaWlXH2Z4vWcuDmGk6RuvO6DzEvm_F-rcUlDfNjVlIpmVPMnja1VJhcJlpoibtd-FOfVY-vdNCAkyT-mfq56TLn2vMvqTPE44p60jeWgtNLUw71WvBgJ4owISThsnJsMz9sS920j0ikACwHkp2l4Oibdldw-TtyZsuB5cxoS3DDa_E1TmGMc2Uy70Uqe_jw0',
+            url: '/azul-sinistro'
+        },
+        'azul-torcedor': {
+            name: 'Uniforme II - Aero Fit (Torcedor)',
+            price: 170.00,
+            theme: 'Azul Sinistro',
+            image: 'https://lh3.googleusercontent.com/aida/ADBb0uh0Bg1Dwg47MLuKSqTYmsy2Gmciwp51UfvvakJ4DZ4lPZ2gtKYpumR0QCAGvpJPpJe2CM4PhCaK9DZAaWlXH2Z4vWcuDmGk6RuvO6DzEvm_F-rcUlDfNjVlIpmVPMnja1VJhcJlpoibtd-FOfVY-vdNCAkyT-mfq56TLn2vMvqTPE44p60jeWgtNLUw71WvBgJ4owISThsnJsMz9sS920j0ikACwHkp2l4Oibdldw-TtyZsuB5cxoS3DDa_E1TmGMc2Uy70Uqe_jw0',
+            url: '/azul-sinistro'
+        }
+    };
+
     let cart = [];
 
     const cartDrawer = document.getElementById('cart-drawer');
@@ -172,12 +204,77 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // Add "Adicionar Mais Itens" button and selection panel
+        const addMoreHTML = `
+            <div class="mt-8 border border-on-background/10 rounded-xl overflow-hidden bg-white">
+                <button id="cart-add-more-btn" class="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-black hover:text-white transition-colors uppercase font-black tracking-widest text-xs outline-none border-t-0 border-r-0 border-l-0 border-b-0 border-transparent">
+                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">add_circle</span> Adicionar Novo Manto</span>
+                    <span class="material-symbols-outlined text-lg transform transition-transform duration-300" id="cart-add-more-icon">expand_more</span>
+                </button>
+                <div id="cart-add-more-panel" class="hidden px-4 pb-4">
+                    <div class="grid grid-cols-2 gap-4 mt-4">
+                        ${Object.keys(productMap).map(key => {
+            const p = productMap[key];
+            return `
+                            <div class="flex flex-col gap-2 border border-on-background/5 p-2 rounded-lg bg-gray-50 group">
+                                <div class="bg-white rounded-md p-2 border border-on-background/5 flex-shrink-0 relative overflow-hidden">
+                                    <img src="${p.image}" class="w-full h-[80px] object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
+                                </div>
+                                <div class="flex flex-col flex-1 justify-between">
+                                    <div>
+                                        <span class="text-[8px] font-black uppercase tracking-widest text-secondary block truncate">${p.theme}</span>
+                                        <h5 class="text-[9px] font-bold uppercase leading-tight mt-0.5 text-on-surface-variant line-clamp-3">${p.name.replace(p.theme + ' - ', '')}</h5>
+                                    </div>
+                                    <div class="mt-2 flex items-center justify-between border-t border-on-background/10 pt-2">
+                                        <span class="text-[10px] font-black text-on-background">${formatPrice(p.price)}</span>
+                                        <button class="add-from-cart-btn bg-black text-white w-6 h-6 rounded-full flex items-center justify-center hover:bg-primary hover:text-black transition-colors" data-product-id="${key}" title="Adicionar ao Carrinho">
+                                            <span class="material-symbols-outlined text-[14px]">add</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+        }).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+        cartItemsContainer.insertAdjacentHTML('beforeend', addMoreHTML);
+
         if (cartSubtotalEl) cartSubtotalEl.textContent = formatPrice(subtotal);
     };
 
     // Event Delegation for Cart Items
     if (cartItemsContainer) {
         cartItemsContainer.addEventListener('click', (e) => {
+            // Add More Items Toggle
+            const addMoreToggleBtn = e.target.closest('#cart-add-more-btn');
+            if (addMoreToggleBtn) {
+                const panel = document.getElementById('cart-add-more-panel');
+                const icon = document.getElementById('cart-add-more-icon');
+                if (panel) {
+                    panel.classList.toggle('hidden');
+                    if (panel.classList.contains('hidden')) {
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        icon.style.transform = 'rotate(180deg)';
+                        setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+                    }
+                }
+                return;
+            }
+
+            // Add From Cart
+            const addFromCartBtn = e.target.closest('.add-from-cart-btn');
+            if (addFromCartBtn) {
+                const productId = addFromCartBtn.getAttribute('data-product-id');
+                const prod = productMap[productId];
+                if (prod) {
+                    addToCart(prod); // Note: addToCart calls renderCart, closing the accordion automatically.
+                }
+                return;
+            }
+
             const qtyBtn = e.target.closest('.qty-btn');
             if (qtyBtn) {
                 const index = parseInt(qtyBtn.getAttribute('data-index'));
@@ -328,41 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check for product in URL for cross-page checkout
     const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('product');
-
-    // Centralized Product Map for Search and Checkout Redirects
-    const productMap = {
-        'tradic-jogador': {
-            name: 'Uniforme I - Aero Fit (Jogador)',
-            price: 190.00,
-            theme: 'Tradição Canarinho',
-            image: 'https://lh3.googleusercontent.com/aida/ADBb0ujb4279ZdQAcuuv1DZXOu3lXJPZCh3U3IQ4_CIo2VVJKFbS8HodGiMBonrNl-zs0NULpXQcOrU6_mTXaqfAIO6s231vprP8NUhXld2qbJO_EJnBuSSlMI1CHcwwtz5n1XnZrR7N2NHx9xx8nD9n7T92YinPsm_l_BhzCNT55bYCHBhUBLjtPGtRmPJM8AIer1jEfUH7s_TytmkPyaCoQtq3at1OlWqzEV3U3zA5LgROdo8oWLX-HNPbJNMTezG2EFVHbMzQ4dXFmgk',
-            url: '/tradicao-canarinho'
-        },
-        'tradic-torcedor': {
-            name: 'Uniforme I - Aero Fit (Torcedor)',
-            price: 160.00,
-            theme: 'Tradição Canarinho',
-            image: 'https://lh3.googleusercontent.com/aida/ADBb0ujfFWtNXpvbEZAwGlLJSxvSWbudJHMxjObXFaGdxPlqp2VhOBYgyNqkthuAdVKpT5QtkBZUKPmb-zsSRSJbqgVYhpea5NANAL4gIAebhusUvDUj444TgvOC3VqzP-rf95NeuesHiMx_KT-M4ZteydLNj7zz-pdrTnzSBFcGUn_Bq6xdq2QKh_jD3l27-2n8KhDePfscwBoSLY5jIkKiNE0ORRpQnsjM-XZUe9Di20TEb7XDjTACMSsPfoR_FfQG0pmtf3E7ga6FKw',
-            url: '/tradicao-canarinho'
-        },
-        'azul-jogador': {
-            name: 'Uniforme II - Aero Fit (Jogador)',
-            price: 210.00,
-            theme: 'Azul Sinistro',
-            image: 'https://lh3.googleusercontent.com/aida/ADBb0uh0Bg1Dwg47MLuKSqTYmsy2Gmciwp51UfvvakJ4DZ4lPZ2gtKYpumR0QCAGvpJPpJe2CM4PhCaK9DZAaWlXH2Z4vWcuDmGk6RuvO6DzEvm_F-rcUlDfNjVlIpmVPMnja1VJhcJlpoibtd-FOfVY-vdNCAkyT-mfq56TLn2vMvqTPE44p60jeWgtNLUw71WvBgJ4owISThsnJsMz9sS920j0ikACwHkp2l4Oibdldw-TtyZsuB5cxoS3DDa_E1TmGMc2Uy70Uqe_jw0',
-            url: '/azul-sinistro'
-        },
-        'azul-torcedor': {
-            name: 'Uniforme II - Aero Fit (Torcedor)',
-            price: 170.00,
-            theme: 'Azul Sinistro',
-            image: 'https://lh3.googleusercontent.com/aida/ADBb0uh0Bg1Dwg47MLuKSqTYmsy2Gmciwp51UfvvakJ4DZ4lPZ2gtKYpumR0QCAGvpJPpJe2CM4PhCaK9DZAaWlXH2Z4vWcuDmGk6RuvO6DzEvm_F-rcUlDfNjVlIpmVPMnja1VJhcJlpoibtd-FOfVY-vdNCAkyT-mfq56TLn2vMvqTPE44p60jeWgtNLUw71WvBgJ4owISThsnJsMz9sS920j0ikACwHkp2l4Oibdldw-TtyZsuB5cxoS3DDa_E1TmGMc2Uy70Uqe_jw0',
-            url: '/azul-sinistro'
-        }
-    };
-
-    if (productId) {
+    const productId = urlParams.get('product'); if (productId) {
         const prod = productMap[productId];
         if (prod) {
             addToCart(prod);

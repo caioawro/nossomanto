@@ -6,8 +6,8 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
-                tradicao: resolve(__dirname, 'tradicao-canarinho.html'),
-                azul: resolve(__dirname, 'azul-sinistro.html'),
+                tradicao: resolve(__dirname, 'tradicao-canarinho/index.html'),
+                azul: resolve(__dirname, 'azul-sinistro/index.html'),
             },
         },
     },

@@ -337,28 +337,28 @@ document.addEventListener('DOMContentLoaded', () => {
             price: 190.00,
             theme: 'Tradição Canarinho',
             image: 'https://lh3.googleusercontent.com/aida/ADBb0ujb4279ZdQAcuuv1DZXOu3lXJPZCh3U3IQ4_CIo2VVJKFbS8HodGiMBonrNl-zs0NULpXQcOrU6_mTXaqfAIO6s231vprP8NUhXld2qbJO_EJnBuSSlMI1CHcwwtz5n1XnZrR7N2NHx9xx8nD9n7T92YinPsm_l_BhzCNT55bYCHBhUBLjtPGtRmPJM8AIer1jEfUH7s_TytmkPyaCoQtq3at1OlWqzEV3U3zA5LgROdo8oWLX-HNPbJNMTezG2EFVHbMzQ4dXFmgk',
-            url: '/tradicao-canarinho.html'
+            url: '/tradicao-canarinho'
         },
         'tradic-torcedor': {
             name: 'Uniforme I - Aero Fit (Torcedor)',
             price: 160.00,
             theme: 'Tradição Canarinho',
             image: 'https://lh3.googleusercontent.com/aida/ADBb0ujfFWtNXpvbEZAwGlLJSxvSWbudJHMxjObXFaGdxPlqp2VhOBYgyNqkthuAdVKpT5QtkBZUKPmb-zsSRSJbqgVYhpea5NANAL4gIAebhusUvDUj444TgvOC3VqzP-rf95NeuesHiMx_KT-M4ZteydLNj7zz-pdrTnzSBFcGUn_Bq6xdq2QKh_jD3l27-2n8KhDePfscwBoSLY5jIkKiNE0ORRpQnsjM-XZUe9Di20TEb7XDjTACMSsPfoR_FfQG0pmtf3E7ga6FKw',
-            url: '/tradicao-canarinho.html'
+            url: '/tradicao-canarinho'
         },
         'azul-jogador': {
             name: 'Uniforme II - Aero Fit (Jogador)',
             price: 210.00,
             theme: 'Azul Sinistro',
             image: 'https://lh3.googleusercontent.com/aida/ADBb0uh0Bg1Dwg47MLuKSqTYmsy2Gmciwp51UfvvakJ4DZ4lPZ2gtKYpumR0QCAGvpJPpJe2CM4PhCaK9DZAaWlXH2Z4vWcuDmGk6RuvO6DzEvm_F-rcUlDfNjVlIpmVPMnja1VJhcJlpoibtd-FOfVY-vdNCAkyT-mfq56TLn2vMvqTPE44p60jeWgtNLUw71WvBgJ4owISThsnJsMz9sS920j0ikACwHkp2l4Oibdldw-TtyZsuB5cxoS3DDa_E1TmGMc2Uy70Uqe_jw0',
-            url: '/azul-sinistro.html'
+            url: '/azul-sinistro'
         },
         'azul-torcedor': {
             name: 'Uniforme II - Aero Fit (Torcedor)',
             price: 170.00,
             theme: 'Azul Sinistro',
             image: 'https://lh3.googleusercontent.com/aida/ADBb0uh0Bg1Dwg47MLuKSqTYmsy2Gmciwp51UfvvakJ4DZ4lPZ2gtKYpumR0QCAGvpJPpJe2CM4PhCaK9DZAaWlXH2Z4vWcuDmGk6RuvO6DzEvm_F-rcUlDfNjVlIpmVPMnja1VJhcJlpoibtd-FOfVY-vdNCAkyT-mfq56TLn2vMvqTPE44p60jeWgtNLUw71WvBgJ4owISThsnJsMz9sS920j0ikACwHkp2l4Oibdldw-TtyZsuB5cxoS3DDa_E1TmGMc2Uy70Uqe_jw0',
-            url: '/azul-sinistro.html'
+            url: '/azul-sinistro'
         }
     };
 
